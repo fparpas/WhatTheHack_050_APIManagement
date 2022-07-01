@@ -18,8 +18,8 @@ param vm_subnet_prefix string = '10.0.2.0/24'
 param location string 
 
 
-@description('The reference to the NSG for API Management')
-param apim_nsg_id string
+//@description('The reference to the NSG for API Management')
+//param apim_nsg_id string
 
 //@description('The reference to the NSG for Application Gateway')
 //param agw_nsg_id string
