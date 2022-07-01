@@ -91,8 +91,8 @@ module vnetModule 'modules/vnet.bicep' = {
     vnet_address_prefix: vnet_address_prefix
     apim_subnet_prefix: apim_subnet_prefix
     app_gateway_subnet_prefix: app_gateway_subnet_prefix
-    agw_nsg_id: nsgModule.outputs.agwNSGId
-    apim_nsg_id: nsgModule.outputs.apimNSGId
+    //agw_nsg_id: nsgModule.outputs.agwNSGId
+    //apim_nsg_id: nsgModule.outputs.apimNSGId
     vm_nsg_id: nsgModule.outputs.vmNSGId
   }
 }
