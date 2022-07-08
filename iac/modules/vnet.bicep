@@ -18,11 +18,11 @@ param vm_subnet_prefix string = '10.0.2.0/24'
 param location string 
 
 
-//@description('The reference to the NSG for API Management')
-//param apim_nsg_id string
+@description('The reference to the NSG for API Management')
+param apim_nsg_id string
 
-//@description('The reference to the NSG for Application Gateway')
-//param agw_nsg_id string
+@description('The reference to the NSG for Application Gateway')
+param agw_nsg_id string
 
 @description('The reference to the NSG for Application Gateway')
 param vm_nsg_id string
@@ -42,6 +42,9 @@ resource vnetResource 'Microsoft.Network/virtualNetworks@2021-05-01' = {
         name: 'appGatewaySubnet'
         properties: {
           addressPrefix: app_gateway_subnet_prefix
+          networkSecurityGroup:{
+            id:agw_nsg_id
+          }
           serviceEndpoints: [
             {
               service: 'Microsoft.KeyVault'
@@ -59,6 +62,9 @@ resource vnetResource 'Microsoft.Network/virtualNetworks@2021-05-01' = {
         name: 'apimSubnet'
         properties: {
           addressPrefix: apim_subnet_prefix
+          networkSecurityGroup:{
+            id:apim_nsg_id
+          }
           serviceEndpoints: [
             {
               service: 'Microsoft.KeyVault'
